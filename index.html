@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>المساعد الذكي على واتساب | تشخيص الخسارة والباقات</title>
+<meta name="description" content="احسب ما يضيع من طلبات عملائك، ثم اختر باقة المساعد الذكي على واتساب المناسبة لعيادتك أو صيدليتك أو متجرك.">
+<meta property="og:title" content="المساعد الذكي على واتساب">
+<meta property="og:description" content="تشخيص تقديري للخسارة التشغيلية وباقات بأسعار واضحة بالجنيه المصري.">
+<meta name="theme-color" content="#0f172a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💬%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--pri:#0f172a;--acc:#0369a1;--loss:#b91c1c;--sav:#047857;--tl:#0f766e;--bg:#f1f5f9;--cd:#fff;--ink:#1e293b;--mut:#475569;--ln:#cbd5e1;--r:14px;--s:8px;--sh:0 1px 3px rgba(15,23,42,.08),0 8px 20px rgba(15,23,42,.05);--fs:16px}
+[data-theme=dark]{--pri:#e2e8f0;--acc:#38bdf8;--loss:#f87171;--sav:#34d399;--tl:#2dd4bf;--bg:#0b1220;--cd:#16213a;--ink:#e2e8f0;--mut:#a8b5c9;--ln:#334155}
+[data-hc=on]{--ink:#000;--mut:#000;--ln:#000;--bg:#fff;--cd:#fff}
+[data-hc=on][data-theme=dark]{--ink:#fff;--mut:#fff;--ln:#fff;--bg:#000;--cd:#000}
+*{box-sizing:border-box;margin:0}
+html{font-size:var(--fs);scroll-behavior:smooth;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:'Cairo',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;padding-bottom:72px}
+.w{max-width:1120px;margin:0 auto;padding:0 16px}
+a{color:var(--acc)}
+:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
+.skip{position:absolute;top:-60px;inset-inline-start:8px;background:#fff;color:#000;padding:8px 14px;border-radius:8px;z-index:99}.skip:focus{top:8px}
+.tb{background:var(--pri);color:#fff;font-size:13px}
+[data-theme=dark] .tb{background:#020617;color:#e2e8f0}
+.tb .w{display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding-block:4px}
+.tb button{font:inherit;min-height:44px;min-width:44px;background:transparent;color:inherit;border:1px solid #64748b;border-radius:8px;padding:0 10px;cursor:pointer}
+.tb button[aria-pressed=true]{background:#fff;color:#000}
+header.top{position:sticky;top:0;z-index:20;background:var(--cd);border-bottom:1px solid var(--ln)}
+header.top .w{display:flex;align-items:center;gap:12px;justify-content:space-between;min-height:56px}
+.logo{font-weight:900;color:var(--pri)}
+nav{display:flex;gap:4px;flex-wrap:wrap}
+nav a{padding:10px 10px;text-decoration:none;color:var(--ink);font-size:14px;min-height:44px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:12px;border:0;font:inherit;font-weight:700;cursor:pointer;text-decoration:none;background:var(--acc);color:#fff}
+[data-theme=dark] .btn{color:#0b1220}
+.btn.o{background:transparent;color:var(--acc);border:2px solid var(--acc)}
+.hero{background:linear-gradient(135deg,#0f172a,#1e3a8a 70%,#0369a1);color:#fff;padding:44px 0}
+.hero h1{font-size:clamp(24px,4.4vw,40px);font-weight:900;line-height:1.5;max-width:800px}
+.hero p{margin-top:10px;max-width:700px;color:#e2e8f0}
+.hero .btn{background:#fff;color:#0f172a}.hero .btn.o{background:transparent;color:#fff;border-color:#fff}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px;list-style:none;padding:0}
+.chips li{border:1px solid rgba(255,255,255,.5);border-radius:999px;padding:2px 14px;font-size:14px}
+section{padding:36px 0;scroll-margin-top:64px}
+h2{font-size:clamp(20px,3vw,26px);font-weight:900;color:var(--pri);line-height:1.5}
+.sub{color:var(--mut);margin:4px 0 16px}
+.g{display:grid;gap:14px}.g4{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}.g3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.cd{background:var(--cd);border-radius:var(--r);padding:18px;box-shadow:var(--sh);border:1px solid var(--ln)}
+.cd h3{font-size:17px;color:var(--pri);line-height:1.6}
+.lk{border-top:4px solid var(--loss)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.tabs button{font:inherit;font-weight:700;min-height:44px;padding:0 18px;border-radius:999px;border:2px solid var(--acc);background:transparent;color:var(--acc);cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--acc);color:#fff}
+[data-theme=dark] .tabs button[aria-selected=true]{color:#0b1220}
+.calc{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:16px;align-items:start}
+.fld{margin-bottom:14px}.fld label{display:block;font-weight:600;font-size:14px}
+.row{display:flex;gap:10px;align-items:center}
+.row input[type=range]{flex:1;min-height:44px;accent-color:var(--acc)}
+input[type=number],input[type=text],input[type=tel],select,textarea{font:inherit;color:var(--ink);background:var(--cd);border:1.5px solid var(--ln);border-radius:10px;padding:8px 10px;min-height:44px;width:100%}
+.row input[type=number]{width:96px;text-align:center}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-bottom:14px}
+.kpi{border-radius:12px;padding:14px;color:#fff}.kpi small{display:block;font-size:13px}.kpi b{font-size:clamp(18px,2.6vw,24px);font-weight:900}
+.k1{background:#b91c1c}.k2{background:#0f172a}.k3{background:#047857}
+.fm{direction:ltr;text-align:center;font-family:Consolas,monospace;font-size:13px;background:var(--bg);border-radius:8px;padding:6px;margin-bottom:10px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{background:#0f172a;color:#fff;padding:8px;text-align:right}
+td{padding:8px;border-bottom:1px solid var(--ln);vertical-align:top}
+td.n{text-align:center;white-space:nowrap}td.l{color:var(--loss);font-weight:700}
+td input{width:72px;min-height:40px;text-align:center}
+tfoot td{font-weight:900;color:var(--loss)}
+.wn{background:#fef3c7;color:#78350f;border:1px solid #f59e0b;border-radius:10px;padding:8px 12px;margin-top:10px}
+.nt{font-size:13px;color:var(--mut);margin-top:8px}
+.rec{margin-top:14px;border:2px solid var(--sav)}
+.pk{position:relative}.pk .p{font-size:28px;font-weight:900;color:var(--acc)}
+.pk ul{padding-inline-start:20px;margin:10px 0}.pk li{margin-bottom:4px}
+.pk.best{border:2px solid var(--acc)}.tag{display:inline-block;background:var(--acc);color:#fff;border-radius:999px;padding:0 12px;font-size:13px;margin-bottom:6px}
+[data-theme=dark] .tag{color:#0b1220}
+ol.st{padding-inline-start:22px}ol.st li{margin-bottom:6px}
+details{background:var(--cd);border:1px solid var(--ln);border-radius:12px;margin-bottom:8px}
+summary{cursor:pointer;padding:12px 16px;font-weight:700;min-height:44px}details p{padding:0 16px 14px}
+.cmp td::before{display:none}
+.frm{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}.frm .full{grid-column:1/-1}
+fieldset{border:1.5px solid var(--ln);border-radius:10px;padding:8px 12px}
+fieldset label{display:block;min-height:36px}
+.err{color:var(--loss);font-size:13px;min-height:1.2em}
+.ok{background:#d1fae5;color:#064e3b;border-radius:10px;padding:12px;margin-top:10px}
+footer{background:var(--pri);color:#e2e8f0;padding:24px 0;font-size:14px}
+[data-theme=dark] footer{background:#020617}
+.sb{position:fixed;bottom:0;inset-inline:0;background:var(--cd);border-top:1px solid var(--ln);padding:8px 12px;display:none;gap:8px;z-index:30}
+.sb .btn{flex:1}
+@media(max-width:860px){.calc{grid-template-columns:1fr}.sb{display:flex}nav{display:none}.cmp thead{display:none}.cmp tr{display:block;margin-bottom:10px;border:1px solid var(--ln);border-radius:10px}.cmp td{display:block;border:0}.cmp td::before{display:block;font-weight:700;color:var(--acc);content:attr(data-l)}}
+@media print{body{padding:0;background:#fff;font-size:11.5px}.tb,header.top,.sb,.cta,.frm,#req,.tabs,input[type=range]{display:none}.cd,tr,details{break-inside:avoid;box-shadow:none}section{padding:14px 0}details{display:block}details>*{display:block}.hero{padding:16px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">تخطي إلى المحتوى</a>
+<div class="tb"><div class="w" role="toolbar" aria-label="أدوات الوصول">
+<button id="fm" aria-label="تصغير الخط">A−</button><button id="fp" aria-label="تكبير الخط">A+</button>
+<button id="dk" aria-pressed="false">الوضع الداكن</button><button id="hc" aria-pressed="false">تباين عالٍ</button>
+<button id="pr">طباعة / PDF</button></div></div>
+<header class="top"><div class="w"><span class="logo">💬 المساعد الذكي</span>
+<nav aria-label="التنقل الرئيسي"><a href="#diag">التشخيص</a><a href="#packs">الباقات</a><a href="#flow">التنفيذ</a><a href="#cmp">المقارنة</a><a href="#faq">الأسئلة</a></nav>
+<a class="btn" href="#req">اطلب عرضًا</a></div></header>
+<main id="main">
+<div class="hero"><div class="w">
+<h1>اعرف كم طلبًا يضيع منك كل شهر، ثم قرّر بالأرقام</h1>
+<p>مساعد ذكي على واتساب يرد على الاستفسارات المتكررة، وينظّم الحجوزات والطلبات، ويحوّل المحادثة لموظفك عند الحاجة. أسعار واضحة بالجنيه المصري.</p>
+<div class="cta"><a class="btn" href="#diag">احسب خسارتك الآن</a><a class="btn o" href="#packs">شاهد الباقات</a></div>
+<ul class="chips"><li>ردود على مدار الساعة للسيناريوهات المعتمدة</li><li>تحويل لموظف عند الحاجة</li><li>يفهم اللهجة المصرية (الباقة الاحترافية فما فوق)</li></ul>
+</div></div>
+
+<section id="diag"><div class="w">
+<h2>تشخيص التسرب الصامت</h2>
+<p class="sub">تقدير مبني على الأرقام التي تدخلها أنت، وليس ضمانًا لنتيجة مستقبلية.</p>
+<div class="g g4" id="leaks" aria-label="مصادر التسرب"></div>
+<div class="tabs" role="tablist" id="tabs" aria-label="القطاع" style="margin-top:20px"></div>
+<div class="calc">
+<div class="cd"><h3>مدخلات نشاطك</h3><div id="ins"></div></div>
+<div>
+<div class="kpis" aria-live="polite">
+<div class="kpi k1"><small>إجمالي الخسارة الشهرية</small><b id="kT"></b></div>
+<div class="kpi k2"><small>تكلفة التقاعس سنويًا</small><b id="kY"></b></div>
+<div class="kpi k3"><small>وفر شهري محتمل (افتراض استرداد ٧٨٪)</small><b id="kS"></b></div></div>
+<div class="cd"><div class="fm">E[Loss] = Σ( Volume × 26 × Conversion × F × Ticket )</div>
+<p class="nt" style="margin:0 0 8px">F = 1 − Π(1 − rᵢ × Pᵢ): معامل يمنع احتساب نفس العميل المفقود أكثر من مرة.</p>
+<table><thead><tr><th>محرك الخسارة</th><th>الاحتمالية Pᵢ (٪)</th><th>وحدات مفقودة/شهر</th><th>الأثر (ج.م)</th></tr></thead><tbody id="tb"></tbody>
+<tfoot><tr><td colspan="3">الإجمالي الشهري شاملًا العمالة المهدرة</td><td class="n" id="fT"></td></tr></tfoot></table>
+<p class="nt" id="rv" aria-live="polite"></p>
+<div class="wn" id="wn" hidden>النسبة مرتفعة، راجع الفرضيات قبل العرض على العميل.</div>
+<p class="nt">نسبة الاسترداد ٧٨٪ افتراض تقديري. التوفير الفعلي يختلف حسب حجم الرسائل وعدد الموظفين وطبيعة النشاط.</p></div>
+<div class="cd rec" aria-live="polite"><h3>الباقة المقترحة لك</h3>
+<label style="display:block;min-height:44px"><input type="checkbox" id="nR"> أحتاج تذكيرات مواعيد وتحويل المحادثة لموظف</label>
+<label style="display:block;min-height:44px"><input type="checkbox" id="nI"> أحتاج استقبال صور الطلبات أو الروشتات وكتالوج منتجات</label>
+<p id="rt"></p><button class="btn" id="rb">اطلب هذه الباقة</button></div>
+</div></div></div></section>
+
+<section><div class="w"><h2>ماذا يفعل المساعد لنشاطك؟</h2>
+<div class="g g4" style="margin-top:12px">
+<div class="cd"><h3>ردود على مدار الساعة</h3><p>إجابات عن المواعيد والعنوان والأسعار وفق البيانات التي تعتمدها.</p></div>
+<div class="cd"><h3>تنظيم الحجوزات والطلبات</h3><p>تجميع البيانات في صورة يسهل متابعتها.</p></div>
+<div class="cd"><h3>تذكيرات للعملاء</h3><p>تذكير بالمواعيد وفق الإعدادات المتفق عليها.</p></div>
+<div class="cd"><h3>تدخل الموظف</h3><p>تحويل المحادثة للمختص، وتبقى القرارات المهمة بيده.</p></div></div>
+<div class="g g3" style="margin-top:14px">
+<div class="cd"><h3>العيادات والمراكز الطبية</h3><p>أسئلة المواعيد والخدمات، واستقبال طلبات الحجز، وإرسال التذكيرات.</p></div>
+<div class="cd"><h3>الصيدليات</h3><p>استفسارات توافر المنتجات والأسعار وفق بيانات معتمدة، وتجهيز الطلبات للمراجعة.</p></div>
+<div class="cd"><h3>المتاجر والأنشطة</h3><p>عرض المنتجات والأسعار، واستقبال الطلبات، وتنظيم بيانات التوصيل.</p></div></div>
+<p class="nt"><b>للأنشطة الطبية والصيدلية:</b> المساعد أداة لتنظيم التواصل، وليس بديلًا عن الطبيب أو الصيدلي، ولا يقدم تشخيصًا أو وصفة علاجية. أي صورة روشتة تُجهَّز للمراجعة بواسطة المختص.</p></div></section>
+
+<section id="packs"><div class="w"><h2>الباقات والأسعار</h2>
+<p class="sub">رسوم التأسيس تُدفع مرة واحدة، والاشتراك الشهري يشمل الاستضافة والدعم وفق نطاق الباقة. النطاق النهائي يُثبَّت في عرض السعر.</p>
+<div class="g g3">
+<div class="cd pk" id="p-basic"><h3>الباقة الأساسية</h3><p class="nt">للانطلاق وتنظيم الردود</p><div class="p">٦٠٠ ج.م <small>/ شهريًا</small></div><p>رسوم التأسيس: ٣٬٥٠٠ ج.م مرة واحدة</p>
+<ul><li>رد تلقائي على المواعيد والعنوان والأسعار</li><li>استقبال طلبات الحجز أو الدليفري وتنظيمها</li><li>ردود يومية دون رسوم إضافية لكل رد</li><li>الحملات الترويجية: غير مشمولة</li></ul></div>
+<div class="cd pk best" id="p-pro"><span class="tag">اختيار متوازن</span><h3>الباقة الاحترافية</h3><p class="nt">للعيادات والمتاجر والأنشطة النشطة</p><div class="p">١٬١٠٠ ج.م <small>/ شهريًا</small></div><p>رسوم التأسيس: ٧٬٥٠٠ ج.م مرة واحدة</p>
+<ul><li>يفهم اللهجة المصرية ويرد بأسلوب طبيعي</li><li>تسجيل الحجوزات والطلبات في Google Sheets</li><li>تذكيرات تلقائية قبل المواعيد</li><li>تحويل المحادثة لموظف الاستقبال</li><li>تجهيز بوابة العروض الرسمية، وتكلفة الرسائل حسب الاستهلاك</li></ul></div>
+<div class="cd pk" id="p-full"><h3>الباقة المتكاملة (AI)</h3><p class="nt">للمراكز الكبرى والأنشطة متعددة الخدمات</p><div class="p">٣٬٠٠٠ ج.م <small>/ شهريًا</small></div><p>رسوم التأسيس: ١٥٬٠٠٠ ج.م مرة واحدة</p>
+<ul><li>تدريب المساعد على كتالوج المنتجات أو الخدمات والأسعار</li><li>استقبال صور الطلبات أو الروشتات وتجهيزها للمختص</li><li>حساب الشحن أو الكشف حسب الفرع والتخصص عند توافر البيانات</li><li>دعم فني ذو أولوية وتحديث مستمر للبيانات</li><li>تجهيز وإدارة حملات العروض</li></ul></div></div>
+<p class="nt"><b>الحملات الترويجية:</b> تُرسل عبر بوابة WhatsApp Business Platform الرسمية من Meta بموافقات المستلمين. رسوم الرسائل حسب الاستهلاك (السعر الإرشادي نحو ٤٫٥ ج.م للرسالة، تقديري ويتغير بتسعير Meta) ويُؤكَّد قبل الإطلاق، وليست جزءًا من الاشتراك الشهري.</p></div></section>
+
+<section id="flow"><div class="w"><h2>خطوات التنفيذ والتسليم</h2>
+<div class="cd"><ol class="st"><li><b>تحديد الاحتياج:</b> الخدمات والأسئلة المتكررة وطريقة الحجز.</li><li><b>تجهيز المعلومات:</b> المواعيد والعناوين والأسعار والخدمات.</li><li><b>الإعداد والاختبار:</b> تجربة سيناريوهات المحادثة والتحقق من الردود.</li><li><b>التسليم والتجربة:</b> التشغيل على رقم النشاط وتجربة عملية معك.</li><li><b>الدعم والتحديث:</b> وفق نطاق الباقة المتفق عليها.</li></ol>
+<p><b>المدة المتوقعة:</b> من ٣ إلى ٥ أيام عمل بعد استلام البيانات والمتطلبات، وقد تزيد إذا احتاجت الحسابات الرسمية أو التكاملات لإجراءات إضافية.</p>
+<p><b>السداد:</b> ٥٠٪ من رسوم التأسيس عند بدء العمل، و٥٠٪ عند الاستلام والتجربة الفعلية. الاشتراك الشهري وفق دورة الفوترة المتفق عليها.</p></div></div></section>
+
+<section id="cmp"><div class="w"><h2>اختر الأسلوب المناسب لنشاطك</h2>
+<p class="sub">مقارنة إرشادية عامة بين الفئات، وليست تقييمًا لمنتج بعينه. راجع تفاصيل كل جهة وقت الاختيار.</p>
+<div class="cd" style="padding:0;overflow:hidden"><table class="cmp"><thead><tr><th>المعيار</th><th>منصات عالمية</th><th>برمجة مخصصة</th><th>مستقلون</th><th>خدمتنا</th></tr></thead><tbody>
+<tr><td data-l="المعيار">التكلفة</td><td data-l="منصات عالمية">اشتراكات غالبًا بالدولار ورسوم حسب الاستخدام</td><td data-l="برمجة مخصصة">تأسيس أعلى وصيانة دورية</td><td data-l="مستقلون">تكلفة أولية أقل</td><td data-l="خدمتنا">تسعير محلي بالجنيه وباقات محددة</td></tr>
+<tr><td data-l="المعيار">الدعم واللغة</td><td data-l="منصات عالمية">غالبًا بالإنجليزية</td><td data-l="برمجة مخصصة">يتوقف على الفريق</td><td data-l="مستقلون">يختلف من شخص لآخر</td><td data-l="خدمتنا">دعم بالعربية، وفهم اللهجة المصرية من الباقة الاحترافية</td></tr>
+<tr><td data-l="المعيار">مدة التشغيل</td><td data-l="منصات عالمية">إعداد ذاتي</td><td data-l="برمجة مخصصة">دورة تطوير أطول</td><td data-l="مستقلون">تختلف</td><td data-l="خدمتنا">٣–٥ أيام عمل بعد استلام البيانات</td></tr>
+<tr><td data-l="المعيار">الخصوصية والتحكم</td><td data-l="منصات عالمية">حسب شروط المنصة</td><td data-l="برمجة مخصصة">حسب بنية الحماية</td><td data-l="مستقلون">يتوقف على الضوابط المطبقة</td><td data-l="خدمتنا">تحويل لموظف وضوابط تشغيل تقلل المخاطر، ومصمَّمة لدعم الامتثال لقانون ١٥١ لسنة ٢٠٢٠</td></tr>
+</tbody></table></div>
+<p class="nt">لا توجد وسيلة تضمن عدم تقييد رقم واتساب بنسبة ١٠٠٪؛ نوضح طريقة التشغيل والضوابط قبل التعاقد.</p></div></section>
+
+<section id="faq"><div class="w"><h2>أسئلة شائعة</h2>
+<details><summary>هل يعمل المساعد خارج ساعات العمل؟</summary><p>نعم، للأسئلة والسيناريوهات التي جُهزت واعتُمدت.</p></details>
+<details><summary>هل توجد رسوم على كل رد يومي؟</summary><p>وفق الباقات المعروضة لا توجد رسوم إضافية لكل رد. الرسائل الترويجية عبر Meta تُحاسب حسب الاستهلاك.</p></details>
+<details><summary>هل يمكن لموظفنا استكمال المحادثة؟</summary><p>نعم، في الباقة الاحترافية وما فوقها.</p></details>
+<details><summary>هل يعرف المساعد الأسعار والمواعيد؟</summary><p>نعم بعد تزويده ببيانات صحيحة ومعتمدة، ويجب تحديثها عند أي تغيير.</p></details>
+<details><summary>هل يقرأ الروشتات؟</summary><p>يستقبل الصور ويجهز بياناتها للمختص وفق الباقة، والمراجعة النهائية مسؤولية الصيدلي أو الطبيب.</p></details>
+<details><summary>هل تضمنون عدم حظر الرقم؟</summary><p>لا يمكن تقديم ضمان مطلق؛ القرار يخضع لسياسات المنصة وطريقة الاستخدام.</p></details>
+<details><summary>هل يمكن التعديل بعد التسليم؟</summary><p>تحديث المعلومات والسيناريوهات يتم وفق نطاق الباقة، والإضافات الجديدة في عرض منفصل.</p></details></div></section>
+
+<section id="req"><div class="w"><h2>اطلب عرضًا مناسبًا لنشاطك</h2>
+<p class="sub">أرسل بياناتك وسنفتح لك محادثة واتساب برسالة جاهزة.</p>
+<form class="cd frm" id="fr" novalidate>
+<div><label for="fn">الاسم أو اسم المنشأة *</label><input id="fn" type="text" autocomplete="name"><div class="err" id="e1"></div></div>
+<div><label for="fp2">رقم الهاتف / واتساب *</label><input id="fp2" type="tel" inputmode="numeric" placeholder="01XXXXXXXXX" dir="ltr"><div class="err" id="e2"></div></div>
+<div><label for="fa">نوع النشاط</label><select id="fa"><option>عيادة أو مركز طبي</option><option>صيدلية</option><option>متجر أو نشاط تجاري</option><option>أخرى</option></select></div>
+<div><label for="fk">الباقة المبدئية</label><select id="fk"><option value="الأساسية">الباقة الأساسية</option><option value="الاحترافية" selected>الباقة الاحترافية</option><option value="المتكاملة">الباقة المتكاملة (AI)</option></select></div>
+<fieldset class="full"><legend>طريقة السداد المفضلة</legend><label><input type="radio" name="py" value="إنستاباي" checked> إنستاباي</label><label><input type="radio" name="py" value="فودافون كاش"> فودافون كاش</label><label><input type="radio" name="py" value="تحويل بنكي"> تحويل بنكي</label><label><input type="radio" name="py" value="بطاقة / دفع إلكتروني"> بطاقة بنكية / دفع إلكتروني (عبر رابط دفع آمن)</label></fieldset>
+<div class="full"><label for="fo">ملاحظات</label><textarea id="fo" rows="3"></textarea></div>
+<div class="full"><label style="min-height:44px"><input type="checkbox" id="fc"> أوافق على استخدام بياناتي للرد على طلبي فقط. <a href="#prv">سياسة الخصوصية</a></label><div class="err" id="e3"></div></div>
+<div class="full"><button class="btn" type="submit">أرسل الطلب عبر واتساب</button> <a class="btn o" id="wa" href="#">تواصل مباشر على واتساب</a><div id="ms" aria-live="polite"></div></div>
+</form></div></section>
+</main>
+<footer><div class="w"><p id="prv"><b>الخصوصية:</b> نجمع الاسم ورقم الهاتف ونوع النشاط وملاحظاتك للرد على طلبك فقط، ولا نستخدمها لغير ذلك. لا تتتبع هذه الصفحة زوارها، وتحفظ تفضيلات العرض في متصفحك فقط. لطلب حذف بياناتك تواصل معنا على واتساب.</p>
+<p>عرض تعريفي. الأسعار والنطاق النهائي يُؤكَّدان في عرض السعر أو اتفاق التنفيذ. الأرقام في أداة التشخيص تقديرية. بيانات التواصل: [اسم مقدم الخدمة] · [الهاتف] · [البريد] · [المدينة]. <span id="dt"></span></p></div></footer>
+<div class="sb"><a class="btn" id="wa2" href="#">واتساب</a><a class="btn o" href="#req">اطلب عرضًا</a></div>
+
+<script>
+(function(){'use strict';
+var WHATSAPP_NUMBER='20XXXXXXXXXX',D=26,REC=.78;
+var $=function(i){return document.getElementById(i)},f=function(n){return Math.round(n).toLocaleString('ar-EG')};
+var dr4=['بطء الرد على الاستفسارات','استفسارات خارج أوقات العمل'];
+var S={clinic:{n:'العيادات',tk:'متوسط قيمة الكشف (ج.م)',vl:'استفسارات الحجز اليومية',def:{V:30,T:350,C:45,d:22,c:18,L:4500},dr:dr4.concat(['مواعيد ملغاة لم تُعوَّض','حالات عدم حضور دون تذكير']),u:['حجز','حجز','موعد','موعد'],P:[35,25,45,30],lk:[['حجوزات تضيع في الانتظار','المريض الذي لا يجد ردًا سريعًا يتجه لبديل.'],['مواعيد فارغة','موعد يُلغى ولا يُعاد بيعه وقت مدفوع بلا إيراد.'],['غياب بلا تذكير','يعطل جدول اليوم.'],['عمالة إدارية مستنزفة','ساعات تضيع في الرد المتكرر.']]},
+pharm:{n:'الصيدليات',tk:'متوسط قيمة الطلب (ج.م)',vl:'استفسارات وطلبات اليوم',def:{V:100,T:250,C:60,d:20,c:12,L:6000},dr:dr4.concat(['طلبات ملغاة لعدم توفر الصنف','طلبات لم تكتمل أو تُستلم']),u:['طلب','طلب','طلب','طلب'],P:[35,25,45,30],lk:[['طلبات تضيع بسبب التأخر','العميل يشتري من أول صيدلية ترد.'],['صنف بلا بديل','نفاد الصنف دون اقتراح بديل يعني خسارة طلب.'],['طلبات غير مكتملة','توصيل متروك أو طلب لم يُستلم.'],['وقت الصيدلي','يضيع في الأسعار والرد المتكرر.']]},
+shop:{n:'المتاجر والأنشطة',tk:'متوسط قيمة الطلب (ج.م)',vl:'استفسارات وطلبات اليوم',def:{V:60,T:400,C:50,d:22,c:15,L:5000},dr:dr4.concat(['طلبات ملغاة دون استرجاع','طلبات توصيل غير مكتملة']),u:['طلب','طلب','طلب','طلب'],P:[35,25,40,30],lk:[['استفسارات بلا رد','كل رسالة متأخرة فرصة بيع.'],['سلات متروكة','طلب بدأ ولم يكتمل.'],['إلغاءات بلا متابعة','تتحول لخسارة نهائية.'],['عمالة متكررة','وقت الفريق في أسئلة السعر والتوصيل.']]},
+custom:{n:'قطاع مخصص',tk:'متوسط قيمة العملية (ج.م)',vl:'استفسارات اليوم',def:{V:50,T:300,C:50,d:20,c:12,L:5000},dr:dr4.concat(['عمليات ملغاة دون استرجاع','عمليات متعثرة بلا متابعة']),u:['طلب','طلب','طلب','طلب'],P:[35,25,40,30],lk:[['استفسارات بلا رد','فرص بيع تذهب للمنافس.'],['إلغاءات بلا استرجاع','خسارة نهائية.'],['متابعة غير منتظمة','إيراد جاهز يُترك.'],['عمالة متكررة','مهام يمكن تنظيمها.']]}};
+var IN=[['V',5,300,1,'vl'],['T',20,5000,10,'tk'],['C',10,100,1,'نسبة تحول الاستفسار إلى بيع (٪)'],['d',0,60,1,'نسبة الاستفسارات المتأخر الرد عليها (٪)'],['c',0,60,1,'نسبة الإلغاء أو عدم الاكتمال (٪)'],['L',0,50000,250,'تكلفة العمالة الإدارية المهدرة شهريًا (ج.م)']];
+var sec='clinic',V={},P=[],last={};
+var clamp=function(x,a,b){x=+x;return isNaN(x)?a:Math.min(b,Math.max(a,x))};
+function model(v,p,dr){ // dr: [{r}] ; returns {F,items,stat,R}
+ var h=dr.map(function(r,i){return r*p[i]/100}),prod=1;h.forEach(function(x){prod*=1-x});
+ var F=1-prod,sh=h.reduce(function(a,b){return a+b},0),base=v.V*D*v.C/100,
+ u=h.map(function(x){return sh>0?base*F*x/sh:0});
+ return{F:F,u:u,imp:u.map(function(x){return x*v.T}),R:base*v.T}}
+function calc(){var s=S[sec],m=model(V,P,[V.d/100,V.d/100,V.c/100,V.c/100]);
+ var stat=m.imp.reduce(function(a,b){return a+b},0),tot=stat+V.L;last={m:m,stat:stat,tot:tot};
+ m.u.forEach(function(x,i){$('u'+i).textContent=f(x)+' '+s.u[i];$('e'+i).textContent=f(m.imp[i])});
+ $('eL').textContent=f(V.L);$('fT').textContent=f(tot)+' ج.م';$('kT').textContent=f(tot)+' ج.م';$('kY').textContent=f(tot*12)+' ج.م';$('kS').textContent=f(tot*REC)+' ج.م';
+ var pc=m.R>0?stat/m.R*100:0;$('rv').textContent='الإيراد المحتمل شهريًا: '+f(m.R)+' ج.م · نسبة الخسارة الإحصائية من الإيراد: '+pc.toFixed(1).replace('.','٫')+'٪';
+ $('wn').hidden=pc<=35;rec()}
+function rec(){var k=$('nI').checked?'full':($('nR').checked||V.V>40?'pro':'basic'),
+ nm={basic:'الأساسية',pro:'الاحترافية',full:'المتكاملة (AI)'},
+ why={basic:'حجمك الحالي يناسب تنظيم الردود والحجوزات الأساسية.',pro:$('nR').checked?'احتجت التذكيرات وتحويل المحادثة لموظف، وهما في الباقة الاحترافية.':'حجم الاستفسارات اليومي مرتفع نسبيًا، وتفيدك الباقة الاحترافية بتسجيل الحجوزات والتذكيرات.',full:'احتجت استقبال الصور والكتالوج، وهذا ضمن الباقة المتكاملة.'};
+ $('rt').textContent='الباقة '+nm[k]+': '+why[k]+' اقتراح استرشادي يُؤكَّد في عرض السعر.';$('rb').dataset.k=k}
+function build(k){sec=k;var s=S[k];V=Object.assign({},s.def);P=s.P.slice();
+ $('tabs').innerHTML=Object.keys(S).map(function(x){return '<button role="tab" data-s="'+x+'" aria-selected="'+(x===k)+'">'+S[x].n+'</button>'}).join('');
+ $('leaks').innerHTML=s.lk.map(function(c){return '<div class="cd lk"><h3>'+c[0]+'</h3><p>'+c[1]+'</p></div>'}).join('');
+ $('ins').innerHTML=IN.map(function(a){var id=a[0],l=a[4]==='vl'?s.vl:a[4]==='tk'?s.tk:a[4];return '<div class="fld"><label for="n_'+id+'">'+l+'</label><div class="row"><input type="range" id="r_'+id+'" min="'+a[1]+'" max="'+a[2]+'" step="'+a[3]+'" value="'+V[id]+'" aria-label="'+l+'"><input type="number" id="n_'+id+'" min="'+a[1]+'" max="'+a[2]+'" step="'+a[3]+'" value="'+V[id]+'"></div></div>'}).join('');
+ IN.forEach(function(a){var id=a[0],r=$('r_'+id),n=$('n_'+id);
+  r.oninput=function(){n.value=r.value;V[id]=+r.value;calc()};
+  n.oninput=function(){var x=clamp(n.value,a[1],a[2]);if(n.value!==''&&+n.value!==x)n.value=x;r.value=x;V[id]=x;calc()};
+  n.onchange=function(){var x=clamp(n.value,a[1],a[2]);n.value=x;r.value=x;V[id]=x;calc()}});
+ $('tb').innerHTML=s.dr.map(function(d,i){return '<tr><td>'+d+'</td><td class="n"><input type="number" min="0" max="100" step="5" value="'+P[i]+'" data-i="'+i+'" aria-label="الاحتمالية: '+d+'"></td><td class="n" id="u'+i+'"></td><td class="n l" id="e'+i+'"></td></tr>'}).join('')+'<tr><td>عمالة إدارية مهدرة (تكلفة مباشرة)</td><td class="n">١٠٠٪</td><td class="n">—</td><td class="n l" id="eL"></td></tr>';
+ $('tb').querySelectorAll('input').forEach(function(el){
+  el.oninput=function(){var x=clamp(el.value,0,100);if(el.value!==''&&+el.value!==x)el.value=x;P[+el.dataset.i]=x;calc()};
+  el.onchange=function(){var x=clamp(el.value,0,100);el.value=x;P[+el.dataset.i]=x;calc()}});
+ calc()}
+$('tabs').addEventListener('click',function(e){var b=e.target.closest('button');if(b)build(b.dataset.s)});
+$('nR').onchange=$('nI').onchange=rec;
+$('rb').onclick=function(){$('fk').value={basic:'الأساسية',pro:'الاحترافية',full:'المتكاملة'}[$('rb').dataset.k];$('req').scrollIntoView();$('fn').focus()};
+// accessibility prefs
+var R=document.documentElement,pf={fs:16,dk:0,hc:0};
+try{pf=Object.assign(pf,JSON.parse(localStorage.getItem('prefs')||'{}'))}catch(e){}
+function ap(){R.style.setProperty('--fs',pf.fs+'px');R.dataset.theme=pf.dk?'dark':'light';R.dataset.hc=pf.hc?'on':'off';$('dk').setAttribute('aria-pressed',!!pf.dk);$('hc').setAttribute('aria-pressed',!!pf.hc);try{localStorage.setItem('prefs',JSON.stringify(pf))}catch(e){}}
+$('fp').onclick=function(){pf.fs=Math.min(22,pf.fs+1);ap()};$('fm').onclick=function(){pf.fs=Math.max(14,pf.fs-1);ap()};
+$('dk').onclick=function(){pf.dk=pf.dk?0:1;ap()};$('hc').onclick=function(){pf.hc=pf.hc?0:1;ap()};$('pr').onclick=function(){window.print()};ap();
+$('dt').textContent=new Date().toLocaleDateString('ar-EG');
+// form
+function wl(t){return 'https://wa.me/'+WHATSAPP_NUMBER+(t?'?text='+encodeURIComponent(t):'')}
+$('wa').href=wl('');$('wa2').href=wl('');
+$('fr').addEventListener('submit',function(e){e.preventDefault();var ok=true,n=$('fn').value.trim(),p=$('fp2').value.replace(/[\s-]/g,'').replace(/[٠-٩]/g,function(c){return c.charCodeAt(0)-1632});
+ $('e1').textContent=n?'':(ok=false,'اكتب الاسم أو اسم المنشأة.');
+ $('e2').textContent=/^01[0125]\d{8}$/.test(p)?'':(ok=false,'اكتب رقم موبايل مصريًا صحيحًا مثل 01012345678.');
+ $('e3').textContent=$('fc').checked?'':(ok=false,'الموافقة مطلوبة لإرسال الطلب.');
+ if(!ok)return;
+ var py=document.querySelector('input[name=py]:checked').value,
+ t='طلب عرض: '+n+'\nالهاتف: '+p+'\nالنشاط: '+$('fa').value+'\nالباقة المبدئية: '+$('fk').value+'\nالسداد: '+py+(last.tot?'\nالخسارة الشهرية التقديرية (من الأداة): '+f(last.tot)+' ج.م':'')+($('fo').value.trim()?'\nملاحظات: '+$('fo').value.trim():'');
+ $('ms').innerHTML='<div class="ok">تم تجهيز طلبك. إن لم تُفتح محادثة واتساب تلقائيًا فاضغط <a href="'+wl(t)+'" target="_blank" rel="noopener">هنا لإرسال الرسالة</a>.</div>';
+ window.open(wl(t),'_blank','noopener')});
+build('clinic');
+// self-tests
+var tm=model({V:100,C:100,T:100},[50,50],[.2,.1]);
+console.assert(Math.abs(tm.F-.145)<1e-9,'F');console.assert(Math.round(tm.imp[0]+tm.imp[1])===37700,'loss');console.assert(Math.round(tm.imp[0])===25133&&Math.round(tm.imp[1])===12567,'split');
+console.assert(Math.abs(last.stat+V.L-last.tot)<1e-6,'sum');console.assert(last.stat<=last.m.R,'<=R');
+var pi=$('tb').querySelector('input');pi.value=200;pi.dispatchEvent(new Event('input'));console.assert(pi.value==='100'&&P[0]===100,'Pi clamp');
+build('clinic');
+})();
+</script>
+</body>
+</html>
